@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="jsApp" lang="en">
+<head>
+	<title>jacobstroop.com</title>
+	<base href="/" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="src/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="src/style.css" />
+</head>
+<body>
+
+	<nav class="navbar navbar-default navbar-fixed-top" ng-controller="HeadController as head"><!-- begin header -->
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#headNav">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span> 
+			</button>
+	     	<a class="navbar-brand" href="/home" ng-click="head.setActiveNav('/home')">
+	     		<span class="whitespace"><span class="lite">jacob</span>stroop.com(  <span class="text-warning">'{{head.activeNav}}'</span>  )</span>
+     		</a><!-- brand -->
+	    </div><!-- navbar-header -->
+	    <div class="collapse navbar-collapse navbar-right" id="headNav">
+			<p class="navbar-text">{</p>
+	      <ul class="nav navbar-nav">
+	        <li ng-class="{ active: head.isActiveNav('/home') }">
+	        	<a href="/home" ng-click="head.setActiveNav('/home')">/home</a>
+        	</li>
+	        <li ng-class="{ active: head.isActiveNav('/blog') }">
+	        	<a href="/blog" ng-click="head.setActiveNav('/blog')">/blog</a>
+	        </li>
+	        <li ng-class="{ active: head.isActiveNav('/projects') }">
+	        	<a href="/projects" ng-click="head.setActiveNav('/projects')">/projects</a>
+        	</li> 
+	        <li ng-class="{ active: head.isActiveNav('/cv') }">
+	        	<a href="/cv" ng-click="head.setActiveNav('/cv')">/cv</a>
+	        </li>
+	        <li ng-class="{ active: head.isActiveNav('/about') }">
+	        	<a href="/about" ng-click="head.setActiveNav('/about')">/about</a>
+	        </li>
+	      </ul>
+	      <p class="navbar-text">}</p>
+	    </div><!-- ul containing div -->
+	  </div><!-- container-fluid -->
+	</nav><!-- header -->
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12" ng-view></div>
+		</div> <!-- end row div -->
+	</div> <!-- end container -->
+
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">
+				&copy; 2015 jacobstroop.com
+			</p>
+		</div>
+	</footer>
+
+	<!-- javascript libraries and source -->
+	<script src="lib/jquery/dist/jquery.min.js"></script>
+	<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="lib/angular/angular.min.js"></script>
+	<script src="lib/angular-route/angular-route.min.js"></script>
+	<script src="src/app.js"></script>
+	<script src="src/controller.js"></script>
+	<script src="src/script.js"></script>
+</body>
+</html>
