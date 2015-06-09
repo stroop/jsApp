@@ -1,10 +1,10 @@
 angular.module('jsApp', ['ngRoute'])
 	.config(function ($routeProvider, $locationProvider) {
 		$routeProvider
-			.when('/', {
-				controller: 'MainController',
-				templateUrl: 'views/home.html'
-			})
+			// .when('/', {
+			// 	controller: 'MainController',
+			// 	templateUrl: 'views/home.html'
+			// })
 			.when('/home', {
 				controller: 'MainController',
 				templateUrl: 'views/home.html'
@@ -23,7 +23,10 @@ angular.module('jsApp', ['ngRoute'])
 			})
 			.when('/about', {
 				controller: 'MainController',
-				templateUrl: 'views/about.html'				
+				templateUrl: 'views/about.html'
+			})
+			.otherwise({
+				redirectTo: '/home'	
 			}); // routeProvider
 		$locationProvider.html5Mode(true);
 	});
