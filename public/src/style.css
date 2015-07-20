@@ -15,7 +15,7 @@ h1 {
 }
 
 .bold {
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .navbar-fixed-top {
@@ -45,4 +45,26 @@ body {
   height: 60px;
   background-color: #222222;
   padding: 15px;
+}
+
+/* 
+--------------------------------------------------
+Project styles
+--------------------------------------------------
+*/
+
+.pBlock {
+  width: 50%;
+  float: left;
+  padding-left:  .5em;
+  padding-right: .5em;
+}
+
+.drop-shadow {
+    -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+}
+.container.drop-shadow {
+    padding-left:0;
+    padding-right:0;
 }

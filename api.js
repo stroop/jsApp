@@ -18,3 +18,19 @@ router
 		.post(function (req, res) {
 			
 		});
+
+// api to query / update database
+
+// get all projects
+app.get('api/projects', function (req, res) {
+
+	connection.query("SELECT * from project", function (err, rows) {
+		
+		if(err) {
+			console.log("Problem with MySQL" + err);
+		}
+		else {
+			res.end(JSON.stringify(rows));
+		}
+	});
+});

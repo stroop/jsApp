@@ -30,24 +30,42 @@
   <div class="col-md-2"></div>
 </div>
 
+	<div class="container drop-shadow">
 	<section class="col-md-4 panel panel-defualt" ng-repeat="project in pc.projects | filter:search">
-		<header class="panel-heading">
-			<h3>{{ project.name }}</h3>
-			<div class="well">
-				<h5> {{ project.start }} - {{ project.complete }} </h5>
-				<h5><b>Type:</b> {{ project.type }} <b>Status:</b> {{ project.status }} </h5>
-			</div>
+		<header class="panel-heading" style="margin-bottom: 0; padding-bottom: 0">
+			<h3 style="text-align: center" class="bold">{{ project.name }}</h3>
+			<div class="well well-sm">
+				<div style="overflow: hidden">
+					<div class="pBlock">
+						<h5><b>Type:</b> {{ project.type }}</h5>
+						<h5><b>Status:</b> {{ project.status }}</h5>					
+					</div><!-- pBlock -->
+					<div class="pBlock" style="text-align: right">
+						<h5><b>Start:</b> {{ project.start }}</h5>
+						<h5><b>End:</b> {{ project.complete }}</h5>
+					</div><!-- pBlock -->
+				</div><!-- isolating div -->
+			</div><!-- well -->
 		</header>
-		<div class="panel-body">
+		<div class="panel-body" style="padding-top: 0; margin-top: 0">
 			<h4>Description:</h4>
 			<p>
 				{{ project.description }}
 			</p>
-		</div>
-		<footer class="panel-footer">
-			<h6>Technologies: <span ng-repeat="tech in project.techs"> {{ tech }}, </span></h6>
-			<h6>Blog Tags: <span ng-repeat="tag in project.tags"> {{ tag }}, </span></h6>
+		</div><!-- body -->
+		<footer class="panel-footer" style="text-align: center">
+			<div style="overflow: hidden">
+				<div class="pBlock">
+					<h6><b>Technologies:</b></h6>				
+					<span ng-repeat="tech in project.techs">{{ tech }}{{ $last ? '' : ', '}}</span>
+				</div>
+				<div class="pBlock">
+					<h6><b>Blog Tags:</b></h6>
+					<span ng-repeat="tag in project.tags">{{ tag }}{{ $last ? '' : ', '}}</span>
+				</div>
+			</div>
 		</footer>
 	</section>
+	</div>
 	
 </div>

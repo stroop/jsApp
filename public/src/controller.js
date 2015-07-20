@@ -29,9 +29,11 @@ app.controller('HeadController', function ($scope, $location) {
     
 });
 
-app.controller('ProjectController', function ($scope, $location) {
+app.controller('ProjectController', function ($scope, $location, $http) {
 
-	this.projects = projects;
+	$scope.formData = {};
+
+	
 
 });
 
