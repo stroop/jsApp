@@ -9,10 +9,10 @@ angular.module('jsApp', ['ngRoute'])
 				controller: 'MainController',
 				templateUrl: 'views/home.html'
 			})
-			.when('/blog', {
-				controller: 'MainController',
-				templateUrl: 'views/blog.html'
-			})
+			//.when('/blog', {
+			//	controller: 'MainController',
+			//	templateUrl: 'http://localhost:3000/blog.html'
+			//})
 			.when('/projects', {
 				controller: 'MainController',
 				templateUrl: 'views/projects.html'
@@ -24,9 +24,9 @@ angular.module('jsApp', ['ngRoute'])
 			.when('/about', {
 				controller: 'MainController',
 				templateUrl: 'views/about.html'
-			})
-			.otherwise({
-				redirectTo: '/home'	
-			}); // routeProvider
+			});
+			//.otherwise({
+			//	redirectTo: '/home'
+			//}); // routeProvider
 		$locationProvider.html5Mode(true);
 	});
