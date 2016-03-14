@@ -1,79 +1,82 @@
-<div class="row">
-	<h1>CV</h1>
-	<hr />
-</div>
+<div class="container">
 
-<div class="row">
-	<div class="col-md-8">
-		<section>
-			<header><h2>Profile</h2></header>
-			<article>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</article>
-		</section>
-		<section>
-			<header><h2>Skills</h2></header>
-			<article>
-				<ul>
-					<li>Lorem</li>
-					<li>Ipsum</li>
-					<li>Dolor</li>
-					<li>Sit amet</li>
-				</ul>
-			</article>
-		</section>
-		<section>
-			<header><h2>Education</h2></header>
-		</section>
-		<section>
-			<header><h2>Employement</h2></header>
-			<article>
-				<h3>Employer 1</h3>
-				<h5><em>01/01/1900 - present</em></h5>
-				<h3>Employer 2</h3>
-				<h4><em>01/01/1900 - present</em></h4>
-				<h3>Employer 3</h3>
-				<h4><em>01/01/1900 - present</em></h4>
-			</article>
-		</section>
-		<section>
-			<header><h2>Other</h2></header>
-			<article>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</article>
-		</section>
-	</div>
-	<div class="col-md-4">
-		<section>
-			<header><h3>Contact</h3></header>
-			<table class="table">
-				<tr>
-					<td class="bold">Name:</td>
-					<td>Jacob Stroop</td>
-				</tr>
-				<tr>
-					<td class="bold">Phone:</td>
-					<td>+1(xxx)xxx-xxx</td>
-				</tr>
-				<tr>
-					<td class="bold">Email:</td>
-					<td><a href="mailto:jacob.stroop@gmail.com">jacob.stroop@gmail.com</a></td>
-				</tr>
-				<tr>
-					<td class="bold">Address:</td>
-					<td>4002 Colorado Ave<br/>Nashville, TN 37209<br/>USA</td>
-				</tr>
-			</table>
-		</section>
-	</div><!-- contact -->
-</div><!-- row -->
+	<div class="row">
+	    <h1>CV</h1>
+	    <hr />
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <section>
+                <header><h2>Profile</h2></header>
+                <article>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </article>
+            </section>
+            <section>
+                <header><h2>Skills</h2></header>
+                <article>
+                    <ul>
+                        <li>Lorem</li>
+                        <li>Ipsum</li>
+                        <li>Dolor</li>
+                        <li>Sit amet</li>
+                    </ul>
+                </article>
+            </section>
+            <section>
+                <header><h2>Education</h2></header>
+            </section>
+            <section>
+                <header><h2>Employement</h2></header>
+                <article>
+                    <h3>Employer 1</h3>
+                    <h5><em>01/01/1900 - present</em></h5>
+                    <h3>Employer 2</h3>
+                    <h4><em>01/01/1900 - present</em></h4>
+                    <h3>Employer 3</h3>
+                    <h4><em>01/01/1900 - present</em></h4>
+                </article>
+            </section>
+            <section>
+                <header><h2>Other</h2></header>
+                <article>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </article>
+            </section>
+        </div>
+        <div class="col-md-4">
+            <section ng-controller="CVController">
+                <header><h3>Contact</h3></header>
+                <table class="table">
+                    <tr>
+                        <td class="bold">Name:</td>
+                        <td>{{cv.name.first}} {{cv.name.last}}</td>
+                    </tr>
+                    <tr>
+                        <td class="bold">Phone:</td>
+                        <td>+1(xxx)xxx-xxx</td>
+                    </tr>
+                    <tr>
+                        <td class="bold">Email:</td>
+                        <td><a href="mailto:jacob.stroop@gmail.com">{{cv.contact.email}}</a></td>
+                    </tr>
+                    <tr>
+                        <td class="bold">Address:</td>
+                        <td>4002 Colorado Ave<br/>Nashville, TN 37209<br/>USA</td>
+                    </tr>
+                </table>
+            </section>
+        </div><!-- contact -->
+    </div><!-- row -->
+</div>

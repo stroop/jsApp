@@ -3,7 +3,7 @@ body {
 }
 
 h1 {
-	font-weight: 4;
+	font-weight: 400;
 }
 
 .whitespace {
@@ -22,6 +22,10 @@ h1 {
 -webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.25);
 -moz-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.25);
 box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.25);
+}
+
+.home-jumbotron {
+    margin-top: -10px;
 }
 
 /* 
@@ -45,6 +49,19 @@ body {
   height: 60px;
   background-color: #222222;
   padding: 15px;
+}
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:center;
+    /* inline-block space fix */
+    margin-right:-4px;
 }
 
 /* 

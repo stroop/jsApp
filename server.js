@@ -1,42 +1,62 @@
 var express 	= require('express'),
-	app			= express(),
-	mysql		= require('mysql'),
-	ghost		= require('ghost'),
+	path        = require('path'),
     httpProxy   = require('http-proxy'),
-    bodyParser  = require('body-parser');
+    bodyParser  = require('body-parser'),
+	mongoose    = require('mongoose'),
+    fs          = require('fs');
 
-var proxy = httpProxy.createProxyServer();
+var app			= express();
 
-ghost().then(function (ghostServer) {
-    app.use(ghostServer.config.paths.subdir, ghostServer.rootApp);
+//app.use(bodyParser.urlencoded({extended: true}));
+//app.use(bodyParser.json());
 
-    ghostServer.start(app);
-});//
+// set port config to node env or default 3000
+app.set('port', process.env.PORT || 3000);
+// directory to serve
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
 
-// ghost blog routes:
-app.get('/blog*', function(req, res) {
-    proxy.web(req, res, { target: 'http://127.0.0.1:2368' });
+/* DATABASE */
+
+// development env
+if ('development' == app.get('env')) {
+    //app.use(express.errorHandler());
+    mongoose.connect('mongodb://jsapp-dev:jsapp-dev@ds011389.mlab.com:11389/jsapp-dev', function(err) {
+        if (err) {
+            console.error(chalk.red('Could not connect to MongoDB!'));
+            console.log(chalk.red(err));
+
+        }
+    });
+}
+
+// load all files in models dir
+fs.readdirSync(__dirname + '/app/models').forEach(function(filename) {
+   if (~filename.indexOf('.js')) {
+       require(__dirname + '/app/' + '/models/' + filename);
+   }
 });
 
-app.post('/blog*', function(req, res) {
-    proxy.web(req, res, { target: 'http://127.0.0.1:2368' });
+// get cv
+app.get('/api/cv', function(req, res) {
+    mongoose.model('cv').find(function (err, cv) {
+        res.send(cv);
+    });
+});
+// get all blog posts
+app.get('/api/blog', function(req, res) {
+    mongoose.model('post').find(function (err, posts) {
+        res.send(posts);
+    });
 });
 
-app.delete('/blog*', function(req, res) {
-    proxy.web(req, res, { target: 'http://127.0.0.1:2368' });
+// initial catch all route to map to client side routing
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'public', 'main.html'));
 });
 
-app.put('/blog*', function(req, res) {
-    proxy.web(req, res, { target: 'http://127.0.0.1:2368' });
-});
-
-app
-	.use(express.static('./public'))
-	.get('*', function (req, res) {
-		res.sendfile('public/main.html');
-	})
-	.listen(3000);
+// initialize server on port and log success to console
+app.listen(app.get('port'), function() {
+		console.log('express listening on port ' + app.get('port'));
+	});
 
