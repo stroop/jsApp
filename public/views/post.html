@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h1>{{post.content.title}}</h1>
+            <h5>{{post.meta.createDate | date : 'medium'}}</h5>
+            <h5>{{post.meta.author}}</h5>
+            <!--<post-directive />-->
+            <hr/>
+        </div>
+    </div> <!-- row -->
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-md-centered">
+            <div ng-bind-html="htmlbody"></div>
+        </div> <!-- col-md-8 -->
+    </div> <!-- row -->
+</div> <!-- container -->

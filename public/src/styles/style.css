@@ -85,3 +85,41 @@ Project styles
     padding-left:0;
     padding-right:0;
 }
+
+.fade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    opacity: 1;
+}
+
+ng-view.ng-enter,
+[ng-view].ng-enter {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+ng-view.ng-enter-active,
+[ng-view].ng-enter-active {
+    opacity: 1;
+}
+
+/*[ng-view].ng-enter,*/
+/*[ng-view].ng-leave {*/
+    /*-webkit-transition: all 1s ease;*/
+    /*transition: all 1s ease;*/
+/*}*/
+/*[ng-view].ng-enter {*/
+    /*opacity: 0;*/
+/*}*/
+/*[ng-view].ng-enter-active {*/
+    /*opacity: 1;*/
+/*}*/
+/*[ng-view].ng-leave {*/
+    /*opacity: 1;*/
+/*}*/
+/*[ng-view].ng-leave-active {*/
+    /*opacity: 0;*/
+/*}*/

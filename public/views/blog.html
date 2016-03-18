@@ -1,9 +1,28 @@
-<div class="row">
-	<h1>Blog</h1>
-	<hr />
-	<section>
-		<h3>
-			<span class="text-muted">//under development...</span>
-		</h3>
-	</section>
-</div>
+<div class="container" ng-controller="BlogController">
+    <div class="row">
+        <h1>Blog</h1>
+        <h4 class="text-warning">{{message}}</h4>
+        <hr/>
+        <!--<section>-->
+            <!--<h3>-->
+                <!--<span class="text-muted">//under development...</span>-->
+            <!--</h3>-->
+        <!--</section>-->
+    </div>
+    <div class="row">
+        <div class="col-md-5 col-md-offset-1">
+            <div ng-repeat="post in posts">
+                <section>
+                    <header>
+                        <h2><a ng-href="/blog/post/{{post._id}}">{{post.content.title}}</a></h2>
+                        <h5>{{post.meta.createDate | date :'medium'}}</h5>
+                        <h5>{{post.meta.author}}</h5>
+                    </header>
+                    <article>
+                        <p>{{post.content.body}}</p>
+                    </article>
+                </section>
+            </div> <!-- ng-repeat -->
+        </div> <!-- col-md-5 -->
+    </div> <!-- row -->
+</div> <!-- container -->

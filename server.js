@@ -38,8 +38,9 @@ fs.readdirSync(__dirname + '/app/models').forEach(function(filename) {
 });
 
 // get cv
-app.get('/api/cv', function(req, res) {
-    mongoose.model('cv').find(function (err, cv) {
+app.get('/api/cv/:id', function(req, res) {
+    var id = req.params.id;
+    mongoose.model('cv').findById(id, function (err, cv) {
         res.send(cv);
     });
 });
@@ -47,6 +48,14 @@ app.get('/api/cv', function(req, res) {
 app.get('/api/blog', function(req, res) {
     mongoose.model('post').find(function (err, posts) {
         res.send(posts);
+    });
+});
+
+//get blog post by id
+app.get('/api/blog/:id', function(req, res) {
+    var id = req.params.id;
+    mongoose.model('post').findById(id, function (err, post) {
+       res.send(post);
     });
 });
 
